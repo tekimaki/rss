@@ -1,5 +1,15 @@
 <?php
+
+global $gBitSystem;
+
+$gBitSystem->registerPackageInfo( RSS_PKG_NAME, array(
+	'description' => "Resource Description Framework (RDF) Site Summary (RSS) is a lightweight multipurpose extensible metadata description and syndication format. It allows users to read healines from your site with a dedicated RSS reader.",
+	'license' => '<a href="http://www.gnu.org/licenses/licenses.html#LGPL">LGPL</a>',
+) );
+
+// Install process
 global $gBitInstaller;
+if( is_object( $gBitInstaller ) ){
 
 $tables = array(
 	'rss_modules' => "
@@ -27,13 +37,8 @@ foreach( array_keys( $tables ) AS $tableName ) {
 	$gBitInstaller->registerSchemaTable( RSS_PKG_NAME, $tableName, $tables[$tableName] );
 }
 
-$gBitInstaller->registerPackageInfo( RSS_PKG_NAME, array(
-	'description' => "Resource Description Framework (RDF) Site Summary (RSS) is a lightweight multipurpose extensible metadata description and syndication format. It allows users to read healines from your site with a dedicated RSS reader.",
-	'license' => '<a href="http://www.gnu.org/licenses/licenses.html#LGPL">LGPL</a>',
-) );
-
 // ### Default Preferences
 $gBitInstaller->registerPreferences( RSS_PKG_NAME, array(
 	array( RSS_PKG_NAME, 'rssfeed_cache_time', 3600 ),
 ));
-?>
+}
