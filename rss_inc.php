@@ -19,7 +19,7 @@ if( !is_dir( TEMP_PKG_PATH.'rss' ) ) {
 if( $gBitSystem->getConfig( 'rssfeed_httpauth' ) && 
 	!empty($_REQUEST['httpauth']) && 
 	!$gBitUser->isRegistered() ){
-	users_httpauth();
+	users_httpauth( TRUE );
 }
 
 // initiate feed creator class
