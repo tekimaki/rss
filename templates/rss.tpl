@@ -34,7 +34,7 @@
 					{/forminput}
 				</div>
 
-				<div class="row submit">
+				<div class="buttonHolder row submit">
 					<input type="submit" name="get_feed" value="Get Feed" />
 				</div>
 			{/legend}
